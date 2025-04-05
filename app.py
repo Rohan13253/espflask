@@ -11,12 +11,9 @@ load_dotenv()  # 👈 Load the .env file
 app = Flask(__name__)
 
 cred = credentials.Certificate("/etc/secrets/firebase_key.json")  # or .json if renamed
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'  # ✅ your Firebase DB URL
+ffirebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://flare-cade7-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
-
-
-
 
 @app.route("/")
 def home():
