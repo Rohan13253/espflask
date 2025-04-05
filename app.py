@@ -1,16 +1,17 @@
-from flask import Flask, request, jsonify
+ffrom flask import Flask, request, jsonify
 import firebase_admin
 from firebase_admin import credentials, db
 
 app = Flask(__name__)
 
-# Load Firebase credentials (replace with the correct path on Render)
-cred = credentials.Certificate("flare-cade7-firebase-adminsdk-fbsvc-83bb1f8c37.json")
+# Load Firebase credentials
+cred = credentials.Certificate("flare-cade7-firebase-adminsdk-fbsvc-29a9b32706.json")
 
-# Initialize Firebase Admin SDK
+# Initialize Firebase Admin SDK with Realtime Database
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'  # Replace if you're using Firestore
+    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'
 })
+
 
 @app.route("/")
 def home():
