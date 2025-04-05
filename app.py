@@ -4,13 +4,15 @@ from firebase_admin import credentials, db
 
 app = Flask(__name__)
 
-# Load Firebase credentials
-cred = credentials.Certificate("flare-cade7-firebase-adminsdk-fbsvc-29a9b32706.json")
+load_dotenv()  # 👈 Load the .env file
 
-# Initialize Firebase Admin SDK with Realtime Database
+app = Flask(__name__)
+
+cred = credentials.Certificate(os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'
+    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'  # 👈 Add DB URL
 })
+
 
 
 @app.route("/")
