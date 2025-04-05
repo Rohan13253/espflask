@@ -10,10 +10,11 @@ load_dotenv()  # 👈 Load the .env file
 
 app = Flask(__name__)
 
-cred = credentials.Certificate(os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
+cred = credentials.Certificate("/etc/secrets/firebase_key.zip")  # or .json if renamed
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'  # 👈 Add DB URL
+    'databaseURL': 'https://flare-cade7-default-rtdb.firebaseio.com/'  # ✅ your Firebase DB URL
 })
+
 
 
 
